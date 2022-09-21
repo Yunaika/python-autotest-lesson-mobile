@@ -1,5 +1,14 @@
-from python_autotest_lesson_mobile import __version__
+import allure
+from python_autotest_lesson_mobile.components import search_in_wikipedia, verify_content_found
 
 
-def test_version():
-    assert __version__ == '0.1.0'
+@allure.tag("Android")
+@allure.label("owner", "JuliaMur")
+@allure.story("Поиск в Википедии")
+def test_search_in_wikipedia():
+
+    search_in_wikipedia('Pytest')
+
+    verify_content_found()
+
+
